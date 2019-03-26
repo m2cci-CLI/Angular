@@ -1,0 +1,36 @@
+<p>
+  voila mon Nom et prenom: {{getFullName()}}
+      </p>
+<p>
+    voila le nom et description de la formation:{{formation.toString() }}
+</p>
+
+<p>
+    Optional: {{formationJS?.nom}}
+  </p>
+
+  <div [hidden]="isHidden">
+      Binding hidden property
+      </div>
+
+      <button (click)="handleClick()">apparettre </button>
+
+      <div>
+          <input type="text"
+          #customVariable
+          placeholder="Saisir une valeur">
+          <div>test variable locale : {{customVariable.value}}</div>
+          </div>
+          <div>
+          <button (click)="customVariable.focus()">Focus the input</button>
+          </div>
+
+          <div *ngIf="isDisplay; else title"><p>Formation Angular</p></div>
+          <ng-template #title><p>Nom de la formation</p></ng-template>
+
+          <ul>
+              <li *ngFor="let formation of formations; index as i; first as f"> 
+              <p [style.color]="getColorByElement(f)" > {{ formation.nom }}</p>
+              
+              </li>
+              </ul>
